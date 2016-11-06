@@ -16,7 +16,7 @@ We will use a redis container form the DockerHub https://hub.docker.com/_/node/
 Lets run it and come back to it a bit later 
 
 ```{r, engine='bash', count_lines}
-    $ docker run -d -p 6379:6379 -- name redis redis
+    $ docker run -d -p 6379:6379 --name redis redis
 ```
 
 The -p will tell docker to link port 6379 on the host to 6379 port on the container  
