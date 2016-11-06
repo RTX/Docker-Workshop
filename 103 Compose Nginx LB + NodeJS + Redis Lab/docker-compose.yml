@@ -1,0 +1,21 @@
+version: "2"
+
+services:
+  nodeapp:
+    build: NodeApp
+    ports:
+      - "8080"
+    depends_on:
+         - redis 
+  redis:
+    image: redis
+    ports: 
+      - "6379"
+  nginx:
+    build: Nginx
+    depends_on:
+         - nodeapp
+    ports:
+      - "80:80"
+
+  
