@@ -44,11 +44,6 @@ lets run an Ubuntu server
     $ docker run -i -t ubuntu:16.04 /bin/bash
 ```
 you are now inside the container 
-### Last step 
-
-    Open your browser and browse to http://localhost:8080 
-
-    you should get a response with a view counter 
 
 # To quit the container without exiting the main proccess use 
 # *  CTRL q + p 
