@@ -18,7 +18,7 @@ Create a new proxy.conf file.
 ```nginx
     server {
 
-   undefinedundefined listen 80;
+    listen 80;
     resolver 127.0.0.11 valid=5s;
     set $upstream http://nodeapp:8080;
 
