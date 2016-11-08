@@ -45,7 +45,7 @@ Select DCOS from the drop down
 Select The size and the number of machine nodes you want to create (including the master node)
 ### Each machine cost money!!!
 
-![alt tag](https://github.com/RTX/2016-Sela-BigData-Conf-Docker-Workshop/blob/master/204%20DCOS%20Azure/Images/04-Template-02.png)
+![alt tag](https://github.com/RTX/2016-Sela-BigData-Conf-Docker-Workshop/blob/master/204%20DCOS%20Azure/Images/04-Template-03.png)
 
 Click Next, accept and parches. 
 
