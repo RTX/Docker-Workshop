@@ -65,9 +65,12 @@ Run this command in the terminal to set a secured tunnel to the ACS Master node
     
 ```
 
-When you are done you should be able to browse to 
-* DCOS - http://localhost
+<br>
 
+When you are done you should be able to browse to 
+Browse DCOS on http://localhost
+
+<br>
 ![alt tag](https://github.com/RTX/2016-Sela-BigData-Conf-Docker-Workshop/blob/master/204%20DCOS%20Azure/Images/06-DCOS-01.png)
 
 
@@ -75,7 +78,7 @@ When you are done you should be able to browse to
 ## Step 6
 ### Install Marathon + Chronos
 
-* Go to http://localhost and go to the "UNIVERS" and add Marathon and Chronos 
+Browse http://localhost and go to the "UNIVERS" and add Marathon and Chronos 
 
 ![alt tag](https://github.com/RTX/2016-Sela-BigData-Conf-Docker-Workshop/blob/master/204%20DCOS%20Azure/Images/06-DCOS-02.png)
 
