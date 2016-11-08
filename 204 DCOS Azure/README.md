@@ -1,5 +1,5 @@
 
-# 204 DCOS ON AZURE
+# 204 DC/OS ON AZURE
 
 ### Start a DCOS Cluster running on azure contaainer service
 <br>
@@ -86,6 +86,10 @@ Browse http://localhost and go to the "UNIVERS" and add Marathon and Chronos
 * Marathon - http://localhost/marathon
 * Mesos - http://localhost/mesos
 
-
-
 <br>
+
+
+## Step 6
+### Install DC/OS CLI
+
+https://github.com/dcos/dcos-cli
