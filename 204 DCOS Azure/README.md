@@ -50,4 +50,39 @@ Select The size and the number of machine nodes you want to create (including th
 Click Next, accept and parches. 
 
 ## Step 5 
-### Login to Azure Portal
+### Set the SSH Tunnel 
+
+### Windows :
+
+Follow this tutorial on how to use putty to ssh a Linux machine 
+https://www.howtoforge.com/how-to-configure-ssh-keys-authentication-with-putty-and-linux-server-in-5-quick-steps
+
+### Mac :
+Run this command in the terminal to set a secured tunnel to the ACS Master node 
+
+```{r, engine='bash', count_lines}
+    $ sudo ssh -L 80:localhost:80 -f -N azureuser@MasterNodeFQDN -p 2200
+    
+```
+
+When you are done you should be able to browse to 
+* DCOS - http://localhost
+
+![alt tag](https://github.com/RTX/2016-Sela-BigData-Conf-Docker-Workshop/blob/master/204%20DCOS%20Azure/Images/06-DCOS-01.png)
+
+
+
+## Step 6
+### Install Marathon + Chronos
+
+* Go to http://localhost and go to the "UNIVERS" and add Marathon and Chronos 
+
+![alt tag](https://github.com/RTX/2016-Sela-BigData-Conf-Docker-Workshop/blob/master/204%20DCOS%20Azure/Images/06-DCOS-02.png)
+
+
+* Marathon - http://localhost/marathon
+* Mesos - http://localhost/mesos
+
+
+
+<br>
