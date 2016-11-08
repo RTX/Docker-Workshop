@@ -4,7 +4,7 @@
 
 ## Start a Local Mesos + marathon
 
-folow the steps on this blog post 
+follow the steps on this blog post 
 
     http://blog.microscaling.com/2015/08/running-marathon-and-mini-mesos-as.html
 

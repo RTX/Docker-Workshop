@@ -45,13 +45,13 @@ lets run an Ubuntu server
 ```
 you are now inside the container 
 
-# To quit the container without exiting the main proccess use 
+# To quit the container without exiting the main process use 
 # *  CTRL q + p 
 
 <br>
 
 ## Step 4 
-### Run a container in detuched mode 
+### Run a container in detached mode 
 
 ```{r, engine='bash', count_lines}
     $ docker run -i -t -d ubuntu:16.04 /bin/bash

@@ -1,4 +1,4 @@
-# 201 Start A Swarm Ckuster Lab
+# 201 Start A Swarm Cluster Lab
 
 ### Run a swarm cluster locally using docker-machine  
 
@@ -24,7 +24,7 @@ we will use docker-machine to start vms for our cluster
 ## Step 2 
 ### set your docker CLI to talk to the swarm manager 
 
-we will use docker-machine to start vms for our culster 
+we will use docker-machine to start vms for our cluster 
 
 ```{r, engine='bash', count_lines}
     $ eval "$(docker-machine env SwarmManager)"
@@ -54,7 +54,7 @@ we will use docker-machine to start vms for our culster
 
 to help you see the way swarm work we will run a container that serves as a UI for our swarm 
 
-To do it we will use ManoMaManoMarks/docker-swarm-visualizer and we eill run it on our Swarm Manager 
+To do it we will use ManoMaManoMarks/docker-swarm-visualizer and run it on our Swarm Manager 
 you can find it on https://github.com/ManoMarks/docker-swarm-visualizer
 
 We are running our cli connect to the host  
