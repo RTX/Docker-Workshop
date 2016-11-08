@@ -78,18 +78,80 @@ Browse DCOS on http://localhost
 ## Step 6
 ### Install Marathon + Chronos
 
-Browse http://localhost and go to the "UNIVERS" and add Marathon and Chronos 
+Browse http://localhost and go to the "UNIVERS" 
+
+Add Marathon and Chronos from the list 
 
 ![alt tag](https://github.com/RTX/2016-Sela-BigData-Conf-Docker-Workshop/blob/master/204%20DCOS%20Azure/Images/06-DCOS-02.png)
 
+Search for Marathon-LB and add it as well 
+
+DC/OS, Marathon and Mesos will be avaliable on :
 
 * Marathon - http://localhost/marathon
 * Mesos - http://localhost/mesos
+* DC/OS - http://localhost
 
 <br>
 
 
-## Step 6
+## Step 7
+### Deploy a Service 
+
+Click the "Deploy Service" button on the right 
+
+![alt tag](https://github.com/RTX/2016-Sela-BigData-Conf-Docker-Workshop/blob/master/204%20DCOS%20Azure/Images/07-Deploy-Service-01.png)
+
+Then Select the JSON Mode and paste the JSON
+
+
+```json
+    {
+  "id": "web",
+  "container": {
+    "type": "DOCKER",
+    "docker": {
+      "image": "tutum/hello-world",
+      "network": "BRIDGE",
+      "portMappings": [
+        { "hostPort": 0, "containerPort": 80, "servicePort": 10000 }
+      ],
+      "forcePullImage":true
+    }
+  },
+  "instances": 3,
+  "cpus": 0.1,
+  "mem": 65,
+  "healthChecks": [{
+      "protocol": "HTTP",
+      "path": "/",
+      "portIndex": 0,
+      "timeoutSeconds": 10,
+      "gracePeriodSeconds": 10,
+      "intervalSeconds": 2,
+      "maxConsecutiveFailures": 10
+  }],
+  "labels":{
+    "HAPROXY_GROUP":"external",
+    "HAPROXY_0_VHOST":"<ASC NAME>agents.westeurope.cloudapp.azure.com",
+    "HAPROXY_0_MODE":"http"
+  }
+}
+```
+
+![alt tag](https://github.com/RTX/2016-Sela-BigData-Conf-Docker-Workshop/blob/master/204%20DCOS%20Azure/Images/07-Deploy-Service-02.png)
+
+Click Deploy and wait a few seconds 
+
+
+Browse  <ASC NAME>agents.westeurope.cloudapp.azure.com 
+
+
+
+
+
 ### Install DC/OS CLI
 
 https://github.com/dcos/dcos-cli
+https://dcos.io/docs/1.8/usage/cli/install/
+
