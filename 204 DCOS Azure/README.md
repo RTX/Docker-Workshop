@@ -102,7 +102,8 @@ Click the "Deploy Service" button on the right
 
 ![alt tag](https://github.com/RTX/2016-Sela-BigData-Conf-Docker-Workshop/blob/master/204%20DCOS%20Azure/Images/07-Deploy-Service-01.png)
 
-Then Select the JSON Mode and paste the JSON
+Then Select the "Json Mode" on the top right of the popup  
+
 
 
 ```json
@@ -138,6 +139,9 @@ Then Select the JSON Mode and paste the JSON
   }
 }
 ```
+<br>
+
+Paste the Json
 
 ![alt tag](https://github.com/RTX/2016-Sela-BigData-Conf-Docker-Workshop/blob/master/204%20DCOS%20Azure/Images/07-Deploy-Service-02.png)
 
@@ -150,8 +154,10 @@ Browse  <ASC NAME>agents.westeurope.cloudapp.azure.com
 
 
 
-### Install DC/OS CLI
+### Optional
+You can Install DC/OS CLI and control your DC/OS from your terminal (windows bash is needed)
 
 https://github.com/dcos/dcos-cli
+
 https://dcos.io/docs/1.8/usage/cli/install/
 
