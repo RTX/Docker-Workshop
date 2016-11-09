@@ -77,7 +77,7 @@ To build it run
 ### Run the Web application in scale 
 
 ```{r, engine='bash', count_lines}
-    $ docker service create --name app1-web --network app1-network --replicas 4 -p 800:3000 webdemo
+    $ docker service create --name app1-web --network nodeapp-network --replicas 4 -p 800:3000 webdemo
    
 ```
 
