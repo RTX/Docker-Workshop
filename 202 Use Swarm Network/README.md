@@ -13,6 +13,7 @@
 ### Setup a network
 
 ```{r, engine='bash', count_lines}
+    $ docker swarm init
     $ docker network create -d overlay nodeapp-network
     
 ```
