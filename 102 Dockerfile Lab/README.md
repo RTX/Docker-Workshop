@@ -6,12 +6,13 @@
 
 The demo is using a NodeJS Express application that listens to port 8080 and return a view counter.
 
-The counter is stored on the  redis server, and every time the NodeJS Server gets a request it will pull the number from the redis container and will increes the current number by 1.
+The counter is stored on the  redis server (redis container), and every time the NodeJS Server gets a request it will pull the number from the redis container and will increes the current number by 1.
 
 In this demo We will run 2 separated containers and connect them so they can comunicate. 
 <br>
 <br>
-## Start a redis container 
+## Step 1 
+### Start a redis container 
 
 To run our application we will need a redis container. so lets start one
 
@@ -29,10 +30,16 @@ If you dont specify a host port, docker will rendomly choose one for you.
 <br>
 <br>
 
-## Create the node web application 
+## Step 2 
+### Create the node web application 
 
-Lets first create a new folder and name it NodeApp. 
-inside the folder create a new pageCounter.js file.
+The Nodejs app is a very simple express application that listens to port 8080.
+
+Lets create a new folder and name it NodeApp.
+
+Inside the folder create a new pageCounter.js file. 
+
+Copy the code beow to the file.
 
 ```javascript
     var express = require('express'),
@@ -55,9 +62,10 @@ inside the folder create a new pageCounter.js file.
 ```
 <br>
 
-## Create a new package.json file
+## Step 3 
+### Create a new package.json file
 
-Package Json file is used by npm to download the requierd liberraries.
+The Package.Json file is used by npm to download the requierd liberraries when running "npm restore".
 
 We will use a 2 npm libraries, express, redis.
 
@@ -71,8 +79,11 @@ We will use a 2 npm libraries, express, redis.
 ```
 <br>
 
-## Create Your First Dockerfile 
+## Step 4 
+### Create Your First Dockerfile 
+
 A Dockerfile describes the steps you would manually do to setup your server.  
+
 It will tell docker how to build our container using the docker file as a step by step script.
 
 TODO: Link to a blog post on dockerfile 
@@ -111,16 +122,16 @@ The build command is short and simple docker command.
 ```
 * the -t tell docker how to name the container, you can use tags by spacify a name:tag. tags can be used to manage versions of a container.
 
+## Step 5 
 ### Now lets run our container
 
-you can see we expose port 8080
-and we are using --link to link to our redis container 
+you can see we expose port 8080 from the Host to port 8080 inside the container, and we are using "--link" to link to our redis container and allow the 2 container comunicate via names.
 
 
 ```{r, engine='bash', count_lines}
     $ docker run -d -p 8080:8080 --link redis nodeapp:latest 
 ```
-
+## Step 6 
 ### Last step 
 
     Open your browser and browse to http://localhost:8080 
