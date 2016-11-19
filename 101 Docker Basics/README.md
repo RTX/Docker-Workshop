@@ -82,6 +82,7 @@ Or all together
     $ docker run -itd ubuntu:16.04 /bin/bash
 ```
 
+## Step 5
 ### List the running containers 
 
 To list the running containers list use the ps command 
@@ -96,6 +97,7 @@ To List all the running or exited containers use ps -a command
     $ docker ps -a
 ```
 
+## Step 6
 ### List the local images 
 
 When we run a container, docker will pull down the image we want to run to a locka images repository. 
@@ -106,3 +108,34 @@ List the local docker images
 ```{r, engine='bash', count_lines}
     $ docker images
 ```
+
+## Step 7
+### stop a running container 
+
+if you run the "docker ps" command you can see that every container have an Id, use this Id to tell docker to stop the container 
+
+```{r, engine='bash', count_lines}
+    $ docker stop <container id>
+```
+You can use the -f to force docker to stop the container 
+
+## Step 8
+### delete a container 
+
+Docker will use the base image from the image repo to start every new container. when a container starts it have its own instance of the base image. this instance is stored in the docker containers loccal store and can be permanently deleted using the rm command 
+
+```{r, engine='bash', count_lines}
+    $ docker rm <container id>
+```
+
+
+## Step 8
+### delete a local image  
+
+as we mantioned before docker will download base images and will store them in the local image store. to delete an image permanently  use the rmi command 
+
+```{r, engine='bash', count_lines}
+    $ docker rmi <image name>
+```
+
+
