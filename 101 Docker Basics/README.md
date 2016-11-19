@@ -1,23 +1,31 @@
 # 101 Docker Basics Lab
 
-##### Follow this lab to start working with docker 
+##### Follow this lab to start working with basic docker comands like running a new container, stopping deleting and more...
+
+
 
 <br>
 
 ## Step 1 
 ### Install Docker
 
+In this demo i will assume you have a docker host machine you can use to run your containers on. 
+If you dont, go ahead and install docker on your machine 
+
 To run docker on windows or mac use docker for mac / windows 
  
 Download and install the appropriate version 
 
-* Docker for Mac https://docs.docker.com/docker-for-mac/
-* Docker for Windows https://docs.docker.com/docker-for-windows/
+* Mac : Docker for Mac https://docs.docker.com/docker-for-mac/
+* Windows 10 : Docker for Windows https://docs.docker.com/docker-for-windows/
+* Windows 7 : Docker toolbox https://www.docker.com/products/docker-toolbox
 
 
 
 ## Step 2 
 ### Run your first container 
+
+At first lets run a very simple container and ask it to "echo" "hello world" 
 
 Open a terminal window and type $ docker run....
 ```{r, engine='bash', count_lines}
@@ -26,7 +34,9 @@ Open a terminal window and type $ docker run....
 ```
 
 ### Congrats 
-you used your first container :)
+you used your first container :). 
+
+You can see that the container gave us an out put of "Hello World" 
 
 
 
