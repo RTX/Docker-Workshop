@@ -4,8 +4,9 @@
 
 ##### Follow this lab to build a simple multi container environment using a NodeJs express application and a redis caching container.
 
-The demo is using a NodeJS Express application that listens to port 8080 and return a view counter t
-The counter is stored on the  redis server. and every time the NodeJS Server gets a request it will pull the number from the redis container and will increes the current number by 1.
+The demo is using a NodeJS Express application that listens to port 8080 and return a view counter.
+
+The counter is stored on the  redis server, and every time the NodeJS Server gets a request it will pull the number from the redis container and will increes the current number by 1.
 
 In this demo We will run 2 separated containers and connect them so they can comunicate. 
 <br>
