@@ -25,7 +25,8 @@ Download and install the appropriate version
 ## Step 2 
 ### Run your first container 
 
-At first lets run a very simple container and ask it to "echo" "hello world" 
+At first lets run a very simple busybox bcontainer and ask it to "echo" "hello world" 
+busy box is a very small and striped down container that can be used to build simple light weight containers 
 
 Open a terminal window and type $ docker run....
 ```{r, engine='bash', count_lines}
@@ -43,25 +44,34 @@ You can see that the container gave us an out put of "Hello World"
 ## Step 3 
 ### lets interact with a container 
 
-lets run an Ubuntu server 
+Next we will run an Ubuntu container and and use the conatiner bash to interact with it.
 
-* -i for interactive mode,
-   will print the stdin, stdout, stderr 
-* -t to start a tty
-* /bin/bash will override any default command and will run as the main process on the container 
+lets run an Ubuntu server 
 
 ```{r, engine='bash', count_lines}
     $ docker run -i -t ubuntu:16.04 /bin/bash
 ```
+
+* -i for interactive mode,
+   will print the stdin, stdout, stderr 
+* -t to start a tty
+* ubuntu:16.04 (container type)
+* /bin/bash will override any default command and will run as the main process on the container 
+
+
 you are now inside the container 
 
 # To quit the container without exiting the main process use 
-# *  CTRL q + p 
+# *  CTRL p + q 
 
 <br>
 
 ## Step 4 
 ### Run a container in detached mode 
+
+In the previous step we used the ubuntu container but we ended inside the Ubuntu machine.  but when we use container in real life schenario we usualy not going to be loged in to the machine and it will run in the background 
+
+So to do that we add the -d to the run command and it will run the container without shoing us the bash command 
 
 ```{r, engine='bash', count_lines}
     $ docker run -i -t -d ubuntu:16.04 /bin/bash
@@ -72,20 +82,27 @@ Or all together
     $ docker run -itd ubuntu:16.04 /bin/bash
 ```
 
-Get local docker images list 
+### List the running containers 
 
-```{r, engine='bash', count_lines}
-    $ docker images
-```
-
-Get the running containers list 
+To list the running containers list use the ps command 
 
 ```{r, engine='bash', count_lines}
     $ docker ps
 ```
 
-Get the running or exited containers list 
+To List all the running or exited containers use ps -a command 
 
 ```{r, engine='bash', count_lines}
     $ docker ps -a
+```
+
+### List the local images 
+
+When we run a container, docker will pull down the image we want to run to a locka images repository. 
+and from the point its stored in the repo, docker will not re pull it unless we spasificly tel it to do so. 
+
+List the local docker images  
+
+```{r, engine='bash', count_lines}
+    $ docker images
 ```
