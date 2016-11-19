@@ -2,31 +2,36 @@
 
 ### Multi Containers Environment 
 
-##### Follow this lab to build a simple multi container environment using a NodeJs express application and a redis caching server.
+##### Follow this lab to build a simple multi container environment using a NodeJs express application and a redis caching container.
 
-Our NodeJS application is a simple express application that listens to port 8080 and return a counter that we store on the  redis server .
-We will run two separated containers and connect them to each other so they can talk. 
+The demo is using a NodeJS Express application that listens to port 8080 and return a view counter t
+The counter is stored on the  redis server. and every time the NodeJS Server gets a request it will pull the number from the redis container and will increes the current number by 1.
+
+In this demo We will run 2 separated containers and connect them so they can comunicate. 
 <br>
 <br>
 ## Start a redis container 
-To run our application we will need a redis container 
 
-We will use a redis container form the DockerHub https://hub.docker.com/_/node/
+To run our application we will need a redis container. so lets start one
 
-Lets run it and come back to it a bit later 
+you will use a ready redis container form  DockerHub https://hub.docker.com/_/node/ .
+
+Lets run it now and come back to it a bit later when we run our  nodeJs app.
 
 ```{r, engine='bash', count_lines}
     $ docker run -d -p 6379:6379 --name redis redis
 ```
 
-The -p will tell docker to link port 6379 on the host to 6379 port on the container  
+Notice that we used  -p to tell docker to expose and link port 6379 on the host to 6379 port on the container.  the left one is the Host port and the right one is the container port.
+
+If you dont specify a host port, docker will rendomly choose one for you.
 <br>
 <br>
 
-## Lets create the node application 
-Create a new folder and name it NodeApp
+## Create the node web application 
 
-create a new pageCounter.js file.
+Lets first create a new folder and name it NodeApp. 
+inside the folder create a new pageCounter.js file.
 
 ```javascript
     var express = require('express'),
@@ -50,7 +55,10 @@ create a new pageCounter.js file.
 <br>
 
 ## Create a new package.json file
-We will use a 2 npm libraries and we will list them in the package.json file 
+
+Package Json file is used by npm to download the requierd liberraries.
+
+We will use a 2 npm libraries, express, redis.
 
 ```json
     {
@@ -62,9 +70,11 @@ We will use a 2 npm libraries and we will list them in the package.json file
 ```
 <br>
 
-## Create the NodeJs Dockerfile 
-The Dockerfile describes the steps you would of done manually if you would need to install the same application on a server 
+## Create Your First Dockerfile 
+A Dockerfile describes the steps you would manually do to setup your server.  
+It will tell docker how to build our container using the docker file as a step by step script.
 
+TODO: Link to a blog post on dockerfile 
 ```Dockerfile 
     # Set the base image to official node container
     FROM node
@@ -88,7 +98,9 @@ The Dockerfile describes the steps you would of done manually if you would need 
     CMD ["node", "/src/pageCounter.js"]
 ```
 
-To build the container we will run a short and simple docker build command.
+Now when we have a docker file we can tell docker to build and pack our application in a container.
+
+The build command is short and simple docker command.
 
 * Make sure you run the command from the NodeApp folder 
 
@@ -96,8 +108,9 @@ To build the container we will run a short and simple docker build command.
     $ cd NodeApp
     $ docker build -t nodeapp:latest .
 ```
+* the -t tell docker how to name the container, you can use tags by spacify a name:tag. tags can be used to manage versions of a container.
 
-Now lets run our container
+### Now lets run our container
 
 you can see we expose port 8080
 and we are using --link to link to our redis container 
@@ -111,5 +124,5 @@ and we are using --link to link to our redis container
 
     Open your browser and browse to http://localhost:8080 
 
-    you should get a response with a view counter 
+    you should get a response with a page view counter 
 
