@@ -135,6 +135,9 @@ creage a Dockerfile in the same folder
 ## Step 7
 ### Run the Web application in scale 
 
+create a new swarm service with 4 replicas 
+swarm will automaticaly load balance the replicas.
+
 ```{r, engine='bash', count_lines}
     $ docker service create --name app1-web --network nodeapp-network --replicas 4 -p 800:3000 webdemo
    
@@ -142,12 +145,9 @@ creage a Dockerfile in the same folder
 
 
 
-## Step8
-### Browse to any container <IP>:800 
+## Step 8
+### Browse to localhost:800 
 
-We can browse to any container on port 800 and we will get our application.
-
-This is possible becouse of the new "Routing Mesh" that was introduced on docker 1.12 
-For more info on the routing mesh : https://docs.docker.com/engine/swarm/ingress/
+You should see the page view counter 
 
 
