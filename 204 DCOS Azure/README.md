@@ -81,8 +81,11 @@ https://www.howtoforge.com/how-to-configure-ssh-keys-authentication-with-putty-a
 ### Mac :
 Run this command in the terminal to set a secured tunnel to the ACS Master node 
 
+Replace "MasterNodeFQDN" with your fully qualified domain name 
+replace the "user" with the user name you selected on the creation process
+
 ```{r, engine='bash', count_lines}
-    $ sudo ssh -L 80:localhost:80 -f -N azureuser@MasterNodeFQDN -p 2200
+    $ sudo ssh -L 80:localhost:80 -f -N user@MasterNodeFQDN -p 2200
     
 ```
 
