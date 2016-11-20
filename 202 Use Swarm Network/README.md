@@ -3,9 +3,9 @@
 
 ### Run a swarm cluster locally using docker-machine  
 
-In this lab you will setup a local Swarm cluster using Virtual Box 
+In this lab you will setup a local Swarm cluster and use the new routing mesh.
+see a link on routing mesh at the bottom of the article.
 
-You can choose to deploy Swarm to any other Hypervisor or Machine as long as they can comunicate with each other.
  
 <br>
 <br>
