@@ -78,13 +78,14 @@ We use the SSH tunnel to connect securly to the ACS in azure.
 Follow this tutorial on how to use putty to ssh a Linux machine 
 https://www.howtoforge.com/how-to-configure-ssh-keys-authentication-with-putty-and-linux-server-in-5-quick-steps
 
-### Mac :
-Run this command in the terminal to set a secured tunnel to the ACS Master node 
+### Mac / Linux :
+Run this commands in the terminal to set a secured tunnel to the ACS Master node 
 
 Replace "MasterNodeFQDN" with your fully qualified domain name 
 replace the "user" with the user name you selected on the creation process
 
-```{r, engine='bash', count_lines}
+```{r, engine='bash', count_lines}    
+    $ ssh-add ~/.ssh/id_rsa
     $ sudo ssh -L 80:localhost:80 -f -N user@MasterNodeFQDN -p 2200
     
 ```
