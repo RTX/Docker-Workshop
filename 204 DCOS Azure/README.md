@@ -103,13 +103,12 @@ Browse DCOS on http://localhost
 ## Step 6
 ### Install Marathon + Chronos
 
-Browse http://localhost and go to the "UNIVERS" 
-
-Add Marathon and Chronos from the list 
+Browse http://localhost and go to the "UNIVERS" its the DC/OS "plugin" store
 
 ![alt tag](https://github.com/RTX/2016-Sela-BigData-Conf-Docker-Workshop/blob/master/204%20DCOS%20Azure/Images/06-DCOS-02.png)
 
-Search for Marathon-LB and add it as well 
+Search for Marathon-LB and add it.
+
 
 DC/OS, Marathon and Mesos will be avaliable on :
 
