@@ -171,7 +171,7 @@ with your ACS name and the region you deployed to.
 ```
 <br>
 
-Paste the Json
+Paste the Json in the popup window of DC/OS 
 
 ![alt tag](https://github.com/RTX/2016-Sela-BigData-Conf-Docker-Workshop/blob/master/204%20DCOS%20Azure/Images/07-Deploy-Service-02.png)
 
@@ -179,11 +179,9 @@ Click Deploy and wait a few seconds
 
 
 
-replace the 
-### <ASC NAME>agents.westeurope.cloudapp.azure.com"  
-with your ACS name and the region you deployed to
 
-Browse  <ASC NAME>agents.westeurope.cloudapp.azure.com 
+
+Browse  to the agent URL <ASC NAME>agents.<Azure Region>.cloudapp.azure.com 
 
 
 
