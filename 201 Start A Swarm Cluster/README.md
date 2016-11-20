@@ -2,6 +2,10 @@
 
 ### Run a swarm cluster locally using docker-machine  
 
+In this lab you will create a small swartm claster on Virtual Box machines running localy 
+
+you can follow the same steps on any machine or hypervisor as long as the machines can comunicate with each other 
+
 ##### 
 <br>
 <br>
@@ -12,6 +16,13 @@
 ### Start 3 new VMs 
 
 we will use docker-machine to start vms for our cluster 
+
+Docker machine is a tool from docker that can manage and setup docker Hosts an any environment. 
+
+You can find drivers to all cloud providers and most of the hypervisors. 
+
+in this demo i will use Virtual Box driver.
+
 
 ```{r, engine='bash', count_lines}
     docker-machine create --driver virtualbox SwarmManager
@@ -24,7 +35,7 @@ we will use docker-machine to start vms for our cluster
 ## Step 2 
 ### set your docker CLI to talk to the swarm manager 
 
-we will use docker-machine to start vms for our cluster 
+Set up the Environment Variable to tell the Docker Client (your local docker client) to comunicate with a different docker host instead of your local docker host.
 
 ```{r, engine='bash', count_lines}
     $ eval "$(docker-machine env SwarmManager)"
@@ -37,6 +48,9 @@ we will use docker-machine to start vms for our cluster
 ## Step 3
 ### Create a Swarm 
 
+This command will set up a Swarm Master on the machine you will run this command 
+
+Remember you are now running the docker command on the Virtual Box Docker host and not on your local Docker Host 
 ```{r, engine='bash', count_lines}
     $ docker swarm init
    
@@ -52,7 +66,7 @@ we will use docker-machine to start vms for our cluster
 ## Step 4
 ### Run a swarm visualizer container 
 
-to help you see the way swarm work we will run a container that serves as a UI for our swarm 
+To help you see the way swarm work we will run a container that serves as a UI for our swarm 
 
 To do it we will use ManoMaManoMarks/docker-swarm-visualizer and run it on our Swarm Manager 
 you can find it on https://github.com/ManoMarks/docker-swarm-visualizer
@@ -75,7 +89,13 @@ To see the IP of your Swarm Manager and go to the manager ip on browser <ip>:808
 ## Step 5
 ### Get the Join token 
 
-Yuu can get the manager or the worker token
+Join Tokens are the way Swarm setup the cluster. the first Swarm Master ( the one we used swarm init on) will provide us a command we will use on every machine we want to join to the cluster.
+
+You can get the Manager or the Worker token
+
+Manager token are used to add another manager to the swarm 
+
+and a Wroker token is used to add workers to the cluster.
 
 ```{r, engine='bash', count_lines}
     $ docker swarm join-token worker 
@@ -90,7 +110,7 @@ Yuu can get the manager or the worker token
 ## Step 6
 ### SSH to your workers 
 
-SSH to your each worker   
+SSH to each of your worker machines and run the join command for the worker.   
 
 
 ```{r, engine='bash', count_lines}
@@ -106,7 +126,8 @@ Run the command we got on the join-token command
 
 ## Step 7 
 ### Run Docker swarm mode 
-docker compose will build our containers and 
+
+Lets create a simple Hello World distributed service with 3 replicas 
 
 ```{r, engine='bash', count_lines}
     $ docker service create --name hello-world -- replicas 3 -p 81:80 tutum/hello-world
