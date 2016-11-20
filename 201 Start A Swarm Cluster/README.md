@@ -140,6 +140,8 @@ Lets create a simple Hello World distributed service with 3 replicas
 ## Step 8 
 ### Last step 
 
-    Open your browser and browse to http://<Any Warm IP>:81
+Open your browser and browse to http://<Any Swarm IP>:81
 
-   
+You can browse to any swarm member on port 81 and we will get our application.
+
+This is possible becouse of the new "Routing Mesh" that was introduced on docker 1.12 For more info on the routing mesh : https://docs.docker.com/engine/swarm/ingress/
