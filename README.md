@@ -1,13 +1,14 @@
-# Sela Big Data OSS Conferance 2016 
+# Docker Workshop Labs 0 - 100 
 
 
-Here you can find all the Labs from the docker worksop i gave at Sela Big Data OSS conferance 2016
+Docker workshop labs from 0 to 100 
 
-Please feel free to let me know about any mistake or typos
+Please feel free to let me know about any mistakes or typos
 
 I hope you find it usefull 
 
 Best 
 
 Rotem Or 
+
 rotemo@sela.co.il
