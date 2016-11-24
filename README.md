@@ -1,4 +1,4 @@
-# Docker Workshop Labs 0 - 100 
+# Docker Workshop Labs 0 to 100 
 
 
 Docker workshop labs from 0 to 100 
