@@ -1,8 +1,7 @@
 # Docker Workshop 
-## Windows Containers Labs
+## Linux Containers Labs
 
-Here you can find Labs for Windows Containers 
-
+Here you can find Labs for Linux Containers 
 
 Please let me know about any mistakes or typos if you find one 
 
