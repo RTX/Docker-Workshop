@@ -1,0 +1,17 @@
+marathon:
+  image: mesosphere/marathon:v0.9.0
+  command: "--master zk://mesos:2181/mesos --zk zk://mesos:2181/marathon"
+  links:
+    - mesos
+  ports:
+    - "8080:8080"
+mesos:
+  env_file: .env
+  privileged: true
+  image: containersol/mesos-local
+  ports:
+    - "5050:5050"
+  expose:
+    - "2181"
+  volumes:
+    - "/sys/fs/cgroup:/sys/fs/cgroup:rw"
