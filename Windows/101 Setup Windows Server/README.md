@@ -110,24 +110,10 @@ Select option 6
 
 ```
 
-## Step 6
-### Install docker for windows 
-
-You will install the extra tools from docker 
-
-* Docker-Compose 
-* Docker-Machine
-
-Download the Windows Server 2016 version 
-
- ```url
-    https://store.docker.com/editions/community/docker-ce-desktop-windows
-
- ```
 
 
 https://store.docker.com/editions/community/docker-ce-desktop-windows
-## Step 7
+## Step 6
 ### Run your first windows container 
 
 Open a Terminal window  
