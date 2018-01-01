@@ -1,75 +1,69 @@
-# 101 Install Docker Server 2016
+# 101 Install Docker On Windows 10 
 
-### Setup Windows Server 2016 Containers Role
+### Install Docker Community Edition (CE) on windows 10 
 
 ##### 
 
-In this Lab we will setup a fresh windows server 2016 and install the latest version of docker runtime for windows 
-
-if you already have an old version of docker you can follow the update steps below from step 4
+In this Lab we will install "Docker for windows (CE)" on a windows 10 machine 
 
 <br>
 <br>
-## Step 1 
-### Enable Docker on windows 2016
 
-To install Docker we'll use the OneGet MicrosoftDockerProvider. 
+## Step 1
+### Enable Hyper-V virtualization on your BIOS 
 
-this provider will automaticaly enables the containers feature and modules on your windows server 2016 machine. 
+Docker for Windows requires 64bit Windows 10 Pro with Hyper-V 
+Hyper-V virtualization needs to be enabled on your BIOS 
 
-Open PowerShell CLI  with elevated privileges 
-
-```powershell
-    Install-Module -Name DockerMsftProvider -Repository PSGallery -Force
-```
-
+## Important : Enableing Hyper-V virtualization on your BIOS will disable Orcale VirtualBox 
 
 <br>
 <br>
+
+## Step 2
+### Download and install Docker Community Edition (CE) for windows 
+
+Download installers from the Stable or Edge channel.
+
+Edge channel will contain the latest and gratest features 
+Keep in mind that edge build might be unstable and mught crash from time to time
+
+
+Stable : https://download.docker.com/win/stable/Docker%20for%20Windows%20Installer.exe
+<br>
+Edge : https://download.docker.com/win/edge/Docker%20for%20Windows%20Installer.exe
+
+
+<br>
+
 
 ## Step 2 
 ### Install latest version of Docker 
 
 The next command will use the previues installd module to install the latest avaliable version of docker 
 
-```powershell
-    Install-Package -Name docker -ProviderName DockerMsftProvider
-```
 
-
-
-<br>
 <br>
 
 ## Step 3 
-### Reboot 
+### Start Docker  
 
 
-Reboot your machine 
+Start "Docker for windows" </br>
+on the first time docker will install a small VM as your new docker host using alpine linux distribution  on the Hyper-V hypervisor named "MobyLinuxVM" <br>
+You can find docker icon on your windows tray icons as a small whale carying boxes on his back :) 
 
-```powershell
-    Restart-Computer -Force
-```
-
-
+<br>
 
 ## Step 4 
-### Update an old version of docker on windows server 
+### Switch to Windows containers 
 
-you can skip this step if its a clean install and jump to step 5 
-<br>
-Check the currant docker version on your machine 
- 
-```powershell
-    Get-Package -Name Docker -ProviderName DockerMsftProvider
-```
+right click on the "Docker" icon on your tray icons <br>
+click "Switch to windows containers" <br><br>
+
+docker will stop the linux docker host (the alpine VM) and  will start a new windows container host that will enable you to run Windows Containers 
 
 
-Find what is  the Latest docker version 
- 
-```powershell
-    Find-Package -Name Docker -ProviderName DockerMsftProvider
-```
 
 
 Update Docker 
@@ -84,43 +78,12 @@ Update Docker
 ```
 
 ## Step 5 
-### Install Windows updates 
- 
-Make sure your windows is updated to the latest version 
-
-```cmd
-    sconfig
-```
-
-Select option 6
-
-```cmd
-===============================================================================
-                         Server Configuration
-===============================================================================
-
-1) Domain/Workgroup:                    Workgroup:  WORKGROUP
-2) Computer Name:                       WIN-HEFDK4V68M5
-3) Add Local Administrator
-4) Configure Remote Management          Enabled
-
-5) Windows Update Settings:             DownloadOnly
-6) Download and Install Updates
-7) Remote Desktop:                      Disabled
-
-```
-
-
-
-https://store.docker.com/editions/community/docker-ce-desktop-windows
-## Step 6
 ### Run your first windows container 
 
 Open a Terminal window  
 
 ```cmd
     docker run microsoft/dotnet-samples:dotnetapp-nanoserver
-
 
 
 Dotnet-bot: Welcome to using .NET Core!
@@ -169,5 +132,3 @@ OS: Microsoft Windows 10.0.14393
 ```
 
 
-
-https://docs.microsoft.com/en-us/virtualization/windowscontainers/quick-start/quick-start-windows-server
